@@ -1,113 +1,161 @@
-import Image from "next/image";
+'use client'
 
-export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+import React from "react";
+import _ from "lodash";
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+interface IState {
+  source: string,
+  target: string,
+  excludeInterpunction: boolean
 }
+
+export default class Home extends React.Component<any, IState> {
+
+  constructor(props: any) {
+    super(props);
+    this.state = {
+      source: '',
+      target: '',
+      excludeInterpunction: true,
+    }
+  }
+
+  dictArray = ['嗯', '恩', '眤', '昵', '呢'];
+
+  radixLength = this.calcRadixLength(this.dictArray.length);
+
+  encoder = new TextEncoder();
+
+  decoder = new TextDecoder();
+
+  interpunctionPartten = /[`·~\.,\?!:;"'“”‘’\(\)\[\]\{\}《》「」『』——…\u002c\u3000\u3001\u3002\uff0c\uff01\uff1a\uff1b\uff1f\uff08\uff09\u3010\u3011\u300a\u300b\u3008\u3009\u301c\u301d\u301e\u301f\uffe5\u2026\u2013\u2014\u2018\u2019\u201c\u201d\u2022\u2030\u2039\u203a\u3005\u3006\u3007\u30fb\uff65\uff5e\uffe3]/gu;
+
+  getAllMatchIndexes(str: string, regex: RegExp) {
+    let indexes = [];
+    let match;
+    while (match = regex.exec(str)) {
+      indexes.push(match.index);
+      regex.lastIndex = match.index + match[0].length;
+    }
+    return indexes;
+  }
+
+  calcRadixLength(radix: number): number {
+    if (radix > 0) {
+      let radixLength = 1;
+      while (radix < 255) {
+        radix *= radix;
+        radixLength++;
+      }
+      return radixLength;
+    } else {
+      return 0;
+    }
+  }
+
+  textEncode(source: string): string {
+    let byteArray = this.encoder.encode(source);
+    let result = '';
+    for (let index = 0; index < byteArray.length; index++) {
+      let hexStr = byteArray[index].toString(this.dictArray.length).padStart(this.radixLength, '0')
+      let hexArray = hexStr.split('');
+      for (let i = 0; i < hexArray.length; i++) {
+        let hexIndex = Number.parseInt(hexArray[i])
+        hexArray[i] = this.dictArray[hexIndex];
+      }
+      result += hexArray.join('');
+    }
+    return result;
+  }
+
+  textDecode(source: string): string {
+    let decodeArray = source.split('');
+    for (let i = 0; i < decodeArray.length; i++) {
+      let index = this.dictArray.indexOf(decodeArray[i]);
+      decodeArray[i] = index.toString();
+    }
+
+    console.log(this.radixLength)
+
+    let chunkArray = _.chunk(decodeArray, this.radixLength)
+    let byteArray = [];
+    for (let item of chunkArray) {
+      byteArray.push(Number.parseInt(item.join(''), this.dictArray.length));
+    }
+    return this.decoder.decode(new Uint8Array(byteArray))
+  }
+
+  sourceToTarget(source: string): void {
+    let matchIndex = this.getAllMatchIndexes(source, this.interpunctionPartten);
+    let matchChars = source.match(this.interpunctionPartten);
+
+    source = source.replaceAll(this.interpunctionPartten, '');
+
+    let charArray = source.split('');
+
+    let resultArray = [];
+    for (let char of charArray) {
+      let hexStr = this.textEncode(char);
+      resultArray.push(hexStr)
+    }
+
+    for (let i = 0; i < matchIndex.length; i++) {
+      resultArray.splice(matchIndex[i], 0, matchChars[i])
+    }
+
+    this.setState({ target: resultArray.join('') });
+  }
+
+  targetToSource(target: string): void {
+    console.log(target)
+
+    let matchChars = target.match(this.interpunctionPartten);
+    let charArray = target.split(this.interpunctionPartten);
+    for (let i = 0; i < charArray.length; i++) {
+      let decodeStr = this.textDecode(charArray[i]);
+      charArray[i] = decodeStr;
+    }
+
+    let resultArray = [];
+    for (let i = 0; i < Math.max(matchChars.length, charArray.length); i++) {
+      if (i < charArray.length) {
+        resultArray.push(charArray[i])
+      }
+      if (i < matchChars.length) {
+        resultArray.push(matchChars[i]);
+      }
+    }
+
+    this.setState({ source: resultArray.join('') })
+  }
+
+  setSource(source: string) {
+    this.setState({ source })
+  }
+
+  setTarget(target: string) {
+    this.setState({ target })
+  }
+
+  render(): React.ReactNode {
+    return (
+      <main className="flex h-dvh flex-col items-center justify-between p-4 bg-[url('/images/bg.04dd4630..jpg')]">
+        <div className="container mx-auto  h-1/2">
+          <div className="container mx-auto w-full h-1/5 bg-[url('/images/frame.ae80c163.top.png')] bg-cover"></div>
+          <div className="container mx-auto w-full h-3/5 p-4 bg-[url('/images/frame.ae80c163.1px.png')] bg-repeat-y">
+            <textarea className="w-full h-full" value={this.state.source} onChange={(event) => this.setSource(event.target.value)} />
+          </div>
+          <div className="container mx-auto w-full h-1/5 bg-[url('/images/frame.ae80c163.bottom.png')] bg-cover"></div>
+        </div>
+
+
+        <textarea value={this.state.target} onChange={(event) => this.setTarget(event.target.value)} />
+        <input type="button" onClick={() => { this.sourceToTarget(this.state.source) }} value="翻译" />
+        <input type="button" onClick={() => { this.targetToSource(this.state.target) }} value="en-ne" />
+      </main>
+    );
+  }
+
+}
+
